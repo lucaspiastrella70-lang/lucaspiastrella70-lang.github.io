@@ -4,66 +4,119 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AA - Volver a Nacer</title>
+<meta name="description" content="Grupo de Alcohólicos Anónimos Volver a Nacer. Reuniones diarias por Zoom. Reflexión del día.">
 <style>
+  :root {
+    --bg-overlay: rgba(0,0,0,.60);
+    --card-bg: rgba(0,0,0,.45);
+    --accent: #00eaff;
+    --text: #ffffff;
+  }
+  * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: Arial;
-    background: url('https://images.unsplash.com/photo-1520692211657-5933a0a6979e?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    /* Fondo: paloma + mano + mar (simbología “volver a nacer”) */
+    background: url('https://source.unsplash.com/1600x900/?dove,hand,sea') no-repeat center center fixed;
     background-size: cover;
-    color: white;
   }
-  .overlay {
-    background: rgba(0,0,0,.55);
-    min-height: 100vh;
-    padding: 25px;
-  }
-  h1, h2, h3 { text-align:center; }
+  .overlay { background: var(--bg-overlay); min-height: 100vh; padding: clamp(16px, 2vw, 32px); }
+  header { text-align: center; margin-bottom: 24px; }
+  h1, h2, h3 { margin: .2em 0; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,.8); }
+  .container { max-width: 1000px; margin: 0 auto; display: grid; gap: 16px; }
   .card {
-    background: rgba(0,0,0,.45);
-    margin: 10px auto;
-    padding: 20px;
-    max-width: 900px;
-    border-radius: 10px;
+    background: var(--card-bg); border-radius: 12px; padding: clamp(16px, 2.5vw, 24px);
+    backdrop-filter: blur(2px); box-shadow: 0 6px 18px rgba(0,0,0,.25);
   }
-  a { color: #00eaff; font-weight: bold; }
+  a { color: var(--accent); font-weight: bold; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { margin: .2em 0 .2em 1em; }
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 820px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+  .btn {
+    display: inline-block; background: var(--accent); color: #002b33;
+    padding: 10px 14px; border-radius: 8px; font-weight: 700;
+    text-shadow: none; box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  }
+  .btn:hover { filter: brightness(1.05); }
+  footer { text-align: center; opacity: .9; margin-top: 8px; font-size: .95rem; }
 </style>
 </head>
 <body>
   <div class="overlay">
-    <h1>Grupo AA - Volver a Nacer</h1>
-    <h2>Reuniones diarias</h2>
+    <header>
+      <h1>Grupo de Alcohólicos Anónimos</h1>
+      <h2>“Volver a Nacer”</h2>
+    </header>
 
-    <div class="card">
-      <h3>Horarios</h3>
-      <p>Lunes a Domingos:</p>
-      <ul>
-        <li>08:00 a 10:00 (Buenos Aires)</li>
-        <li>22:00 a 00:00 (Buenos Aires)</li>
-      </ul>
-    </div>
+    <main class="container">
+      <section class="card">
+        <h3>Horarios de Reuniones (Buenos Aires / Georgetown)</h3>
+        <ul>
+          <li><strong>Lunes a Domingos:</strong> 08:00 a 10:00</li>
+          <li><strong>Lunes a Domingos:</strong> 22:00 a 00:00</li>
+        </ul>
+      </section>
 
-    <div class="card">
-      <h3>Zoom</h3>
-      <p>Unirse: 
-      https://us06web.zoom.us/j/9606259940?pwd=SEwvY1lDaGxpL3hJR2lDRFpCRzByZz09</a></p>
-      <p><b>ID:</b> 960 625 9940<br><b>Clave:</b> t71Mr6</p>
-    </div>
+      <section class="card">
+        <h3>Reunión por Zoom</h3>
+        <p><strong>Tema:</strong> Reunión cerrada en Español del grupo Volver a Nacer de Alcohólicos Anónimos</p>
+        <p>
+          <a class="btn" href="https://us06web.zoom.us/j/9606259940?pwd=SEwvY1lDaGxpL3hJR2lDRFpCRzByZz09" target="_blank" rel="noopener">
+            Unirse a la reunión por Zoom
+          </a>
+        </p>
+        <p><strong>ID:</strong> 960 625 9940 · <strong>Código de acceso:</strong> t71Mr6</p>
+      </section>
 
-    <div class="card">
-      <h3>Reflexión del Día</h3>
-      <p><a id="reflectionLink" href="#">Cargando...</a></p>
-    </div>
+      <section class="card">
+        <h3>Reflexión del Día</h3>
+        <p>La reflexión se publica diariamente en el sitio oficial de A.A.</p>
+        <p>
+          <a id="reflectionLink" class="btn" target="_blank" rel="noopener">Ver Reflexión del Día</a>
+        </p>
+        <p style="font-size:.95rem;opacity:.9">El enlace se actualiza automáticamente todos los días.</p>
+      </section>
+
+      <section class="card">
+        <h3>Horarios Internacionales (24h)</h3>
+        <div class="grid-2">
+          <div>
+            <p><strong>08:00 y 22:00</strong><br>🇦🇷 Argentina · 🇺🇾 Uruguay · 🇧🇷 Brasil · 🇵🇾 Paraguay · 🇨🇱 Chile</p>
+            <p><strong>07:00 y 21:00</strong><br>🇺🇸 USA (NY) · 🇩🇴 Rep. Dominicana · 🇵🇷 Puerto Rico · 🇻🇪 Venezuela · 🇧🇴 Bolivia · 🇨🇦 Montreal · 🇭🇹 Haití · 🇨🇺 Cuba</p>
+            <p><strong>06:00 y 20:00</strong><br>🇺🇸 USA (Chicago) · 🇵🇦 Panamá · 🇨🇴 Colombia · 🇵🇪 Perú · 🇪🇨 Ecuador</p>
+          </div>
+          <div>
+            <p><strong>05:00 y 19:00</strong><br>🇬🇹 Guatemala · 🇸🇻 El Salvador · 🇭🇳 Honduras · 🇳🇮 Nicaragua · 🇨🇷 Costa Rica · 🇧🇿 Belice · 🇲🇽 México (CDMX)</p>
+            <p><strong>04:00 y 18:00</strong><br>🇲🇽 México (Chihuahua) · 🇺🇸 USA (Los Ángeles)</p>
+            <p><strong>11:00 y 01:00</strong><br>🇮🇪 Irlanda · 🇵🇹 Portugal</p>
+            <p><strong>12:00 y 02:00</strong><br>🇪🇸 España · 🇮🇹 Italia · 🇫🇷 Francia · 🇨🇭 Suiza · 🇳🇴 Noruega · 🇧🇪 Bélgica · 🇸🇪 Suecia · 🇩🇪 Alemania</p>
+            <p><strong>22:00 y 12:00</strong><br>🇦🇺 Australia (Sydney)</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>AA “Volver a Nacer” — Reuniones todos los días · Este sitio no está afiliado oficialmente a Alcohólicos Anónimos World Services.</p>
+    </footer>
   </div>
 
   <script>
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2,'0');
-    const dd = String(today.getDate()).padStart(2,'0');
-    const url = https://www.aa.org/es/daily-reflections?date=--;
-    const a = document.getElementById("reflectionLink");
-    a.href = url;
-    a.textContent = "Ver Reflexión del Día";
+    // Genera enlace a la reflexión del día (sitio oficial de A.A.)
+    (function () {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const url = `https://www.aa.org/es/daily-reflections?date=${yyyy}-${mm}-${dd}`;
+      const a = document.getElementById("reflectionLink");
+      if (a) {
+        a.href = url;
+        a.textContent = "Ver Reflexión del Día";
+      }
+    })();
   </script>
 </body>
 </html>
