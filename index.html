@@ -25,10 +25,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
 
-  /* Fondo AVIF fijo */
-  background: url('fondo.avif?v=2009') no-repeat center center fixed !important;
+  /* Fallback inmediato y universal (JPG externo) */
+  background: url('https://images.unsplash.com/photo-1520692211657-5933a0a6979e?q=80&w=1600&auto=format&fit=crop') 
+              no-repeat center center fixed !important;
   background-size: cover !important;
+
+  /* Preferencia: tu AVIF local (si el navegador lo soporta) */
+  background-image: image-set(
+    url('fondo.avif?v=2011') type('image/avif'),
+    url('https://images.unsplash.com/photo-1520692211657-5933a0a6979e?q=80&w=1600&auto=format&fit=crop') type('image/jpeg')
+  ) !important;
 }
+``
 
 
   .overlay { background: var(--bg-overlay); min-height: 100vh; padding: clamp(16px, 2vw, 32px); }
