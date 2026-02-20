@@ -24,15 +24,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
 
-  /* Fallback inicial (por si el navegador no soporta AVIF) */
-  background: url('fondo.jpg') no-repeat center center fixed;
-  background-size: cover;
+  /* Fallback JPG (opcional; si no lo subiste, podés omitir estas dos líneas) */
+  background: url('fondo.jpg?v=1001') no-repeat center center fixed !important;
+  background-size: cover !important;
 
-  /* Navegadores modernos elegirán el mejor formato disponible */
+  /* Preferencia AVIF con cache-busting */
   background-image: image-set(
-    url('fondo.jpg.avif') type('image/avif'),
-    url('fondo.jpg')      type('image/jpeg')
-  );
+    url('fondo.jpg.avif?v=1001') type('image/avif'),
+    url('fondo.jpg?v=1001')      type('image/jpeg')
+  ) !important;
 }
 
   .overlay { background: var(--bg-overlay); min-height: 100vh; padding: clamp(16px, 2vw, 32px); }
